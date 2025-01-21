@@ -17,6 +17,44 @@ def menu_pengguna():
     elif option == "Keluar":
         st.write("Terima kasih telah menggunakan layanan kami!")
         st.stop()
+    elif option == "Pesan Makanan":
+        makanan = st.selectbox("Pilih makanan yang ingin dipesan", ["Nasi Goreng", "Ayam Penyet", "Sate"])
+        jumlah = st.number_input("Jumlah Porsi", min_value=1, value=1)  # Tambahkan input jumlah
+        st.write(f"Anda memesan: {makanan}, Jumlah: {jumlah} Porsi")
+        metode_pembayaran = ["Transfer Bank", "GoPay", "OVO"]
+    elif option == "Pesan Makanan":
+        # ... (kode sebelumnya) ...
+        metode = st.selectbox("Pilih Metode Pembayaran", metode_pembayaran)
+        st.write(f"Metode Pembayaran: {metode}")
+
+        harga_makanan = {"Nasi Goreng": 15000, "Ayam Penyet": 20000, "Sate": 25000}
+
+    elif option == "Pesan Makanan":
+        # ... (kode sebelumnya) ...
+        total_harga = harga_makanan[makanan] * jumlah
+        st.write(f"Total Pembayaran: Rp {total_harga:,}")
+
+        # Tampilkan informasi rekening berdasarkan metode pembayaran
+        if metode == "Transfer Bank":
+            st.write("Silakan transfer ke rekening BCA 1234567890 a/n Katering Enak")
+        elif metode == "GoPay":
+            st.write("Silakan bayar melalui GoPay ke nomor 081234567890")
+        # ... (tambahkan informasi untuk metode pembayaran lainnya) ...
+
+        status_pemesanan = "Menunggu Pembayaran"
+    elif option == "Pesan Makanan":
+        # ... (kode sebelumnya) ...
+        st.write(f"Status Pemesanan: {status_pemesanan}")
+
+
+    elif option == "Pesan Makanan":
+        # ... (kode sebelumnya) ...
+        st.write("Invoice:")
+        st.write(f"Makanan: {makanan}")
+        st.write(f"Jumlah: {jumlah} Porsi")
+        st.write(f"Total Harga: Rp {total_harga:,}")
+        st.write(f"Metode Pembayaran: {metode}")
+        st.write(f"Status: {status_pemesanan}")
 
 # Menu Admin
 def menu_admin():
@@ -32,6 +70,7 @@ def menu_admin():
         st.write("Pesanan Hari Ini:")
         st.write("1. Nasi Goreng - 2 Porsi")
         st.write("2. Sate - 1 Porsi")
+        st.stop()
     elif option == "Keluar":
         st.write("Keluar dari aplikasi.")
         st.stop()
